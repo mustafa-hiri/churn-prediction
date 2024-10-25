@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a Prediction</title>
+</head>
+<body>
+    <h1>Make a Prediction</h1>
+    <form method="POST" action="/predict">
+        <!-- Single input field for all features -->
+        <label for="inputData">Enter Data (comma-separated):</label>
+        <input type="text" id="inputData" name="inputData" placeholder="e.g. 1,0,0,1,12,1,1,0,1,0,1,1,1,112.95,1384.75,1,0,1,0,1,0,1" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if predicted_value is not none %}
+        <h2>Prediction Result:</h2>
+        <p>Input Data: {{ input_data }}</p>
+        <p>Predicted Value: {{ predicted_value }}</p>
+        <p>Predicted Label: {{ predicted_label }}</p>
+    {% endif %}
+</body>
+</html>
